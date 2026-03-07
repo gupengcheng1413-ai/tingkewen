@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>听力音频 · 阿尔法蛋K6</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+<div class="device-frame">
+
+  <!-- ==================== PAGE 1: SPLASH ==================== -->
+  <div id="splashPage" class="page active">
+    <div class="status-bar">
+      <span class="status-time" data-clock>09:41</span>
+      <div class="status-icons">
+        <svg viewBox="0 0 11 11"><rect x="0" y="5" width="2" height="6"/><rect x="3" y="3" width="2" height="8"/><rect x="6" y="1" width="2" height="10"/><rect x="9" y="0" width="2" height="11"/></svg>
+        <svg viewBox="0 0 11 11"><path d="M1 3.5C2.5 1.5 8.5 1.5 10 3.5M3 5.5C4 4 7 4 8 5.5M5.5 7.5a.5.5 0 110 1 .5.5 0 010-1z" stroke="#fff" stroke-width="1" fill="none"/></svg>
+        <svg viewBox="0 0 13 11"><rect x="0" y="2" width="10" height="7" rx="1" stroke="#fff" stroke-width="1" fill="none"/><rect x="1" y="3" width="7" height="5" fill="#fff"/><path d="M11 4.5v2" stroke="#fff" stroke-width="1.5" stroke-linecap="round"/></svg>
+        <span>100%</span>
+      </div>
+    </div>
+    <div class="splash-body">
+      <div class="splash-icon">
+        <svg viewBox="0 0 36 36"><path d="M5 8C5 6.3 6.3 5 8 5h14l9 9v17c0 1.7-1.3 3-3 3H8c-1.7 0-3-1.3-3-3V8z" fill="rgba(255,255,255,0.25)"/><path d="M22 5l9 9h-7c-1.1 0-2-.9-2-2V5z" fill="rgba(255,255,255,0.4)"/><path d="M11 16h14M11 20h14M11 24h9" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg>
+      </div>
+      <div class="splash-title">听力音频</div>
+      <div class="splash-sub">语文课文听读</div>
+      <div class="splash-dots">
+        <div class="splash-dot"></div>
+        <div class="splash-dot on"></div>
+        <div class="splash-dot"></div>
+      </div>
+    </div>
+    <div class="home-indicator"><div class="home-indicator-bar"></div></div>
+  </div>
+
+  <!-- ==================== PAGE 2: SELECT VERSION ==================== -->
+  <div id="selectVersionPage" class="page">
+    <div class="status-bar">
+      <span class="status-time" data-clock>09:41</span>
+      <div class="status-icons">
+        <svg viewBox="0 0 11 11"><rect x="0" y="5" width="2" height="6"/><rect x="3" y="3" width="2" height="8"/><rect x="6" y="1" width="2" height="10"/><rect x="9" y="0" width="2" height="11"/></svg>
+        <svg viewBox="0 0 11 11"><path d="M1 3.5C2.5 1.5 8.5 1.5 10 3.5M3 5.5C4 4 7 4 8 5.5M5.5 7.5a.5.5 0 110 1 .5.5 0 010-1z" stroke="#fff" stroke-width="1" fill="none"/></svg>
+        <svg viewBox="0 0 13 11"><rect x="0" y="2" width="10" height="7" rx="1" stroke="#fff" stroke-width="1" fill="none"/><rect x="1" y="3" width="7" height="5" fill="#fff"/><path d="M11 4.5v2" stroke="#fff" stroke-width="1.5" stroke-linecap="round"/></svg>
+        <span>100%</span>
+      </div>
+    </div>
+    <div class="nav-bar with-border">
+      <button class="nav-btn" onclick="app.goBack()">
+        <svg viewBox="0 0 20 20"><path d="M13 16L7 10L13 4"/></svg>
+      </button>
+      <span class="nav-title">选择教材版本</span>
+      <div class="nav-spacer"></div>
+    </div>
+    <div class="version-list" id="versionList">
+      <button class="version-item selected" onclick="app.selectVersion(this,'统编版（六三学制）','primary')">
+        <div class="version-item-text">
+          <div class="version-item-name">统编版（六三学制）</div>
+          <div class="version-item-tag">小学·通用版本</div>
+        </div>
+        <span class="version-check">✓</span>
+      </button>
+      <button class="version-item" onclick="app.selectVersion(this,'统编版（五四学制）','primary')">
+        <div class="version-item-text">
+          <div class="version-item-name">统编版（五四学制）</div>
+          <div class="version-item-tag">小学·部分地区</div>
+        </div>
+        <span class="version-check">✓</span>
+      </button>
+      <button class="version-item" onclick="app.selectVersion(this,'统编版（高中）','high')">
+        <div class="version-item-text">
+          <div class="version-item-name">统编版（高中）</div>
+          <div class="version-item-tag">高中·通用版本</div>
+        </div>
+        <span class="version-check">✓</span>
+      </button>
+      <button class="version-item" onclick="app.selectVersion(this,'人教版（旧版）','primary')">
+        <div class="version-item-text">
+          <div class="version-item-name">人教版（旧版）</div>
+          <div class="version-item-tag">全国·通用版本</div>
+        </div>
+        <span class="version-check">✓</span>
+      </button>
+    </div>
+    <div class="confirm-btn-area">
+      <button class="confirm-btn" onclick="app.confirmVersion()">确定</button>
+    </div>
+    <div class="home-indicator"><div class="home-indicator-bar"></div></div>
+  </div>
+
+  <!-- ==================== PAGE 3: SELECT GRADE ==================== -->
+  <div id="selectGradePage" class="page">
+    <div class="status-bar">
+      <span class="status-time" data-clock>09:41</span>
+      <div class="status-icons">
+        <svg viewBox="0 0 11 11"><rect x="0" y="5" width="2" height="6"/><rect x="3" y="3" width="2" height="8"/><rect x="6" y="1" width="2" height="10"/><rect x="9" y="0" width="2" height="11"/></svg>
+        <svg viewBox="0 0 11 11"><path d="M1 3.5C2.5 1.5 8.5 1.5 10 3.5M3 5.5C4 4 7 4 8 5.5M5.5 7.5a.5.5 0 110 1 .5.5 0 010-1z" stroke="#fff" stroke-width="1" fill="none"/></svg>
+        <svg viewBox="0 0 13 11"><rect x="0" y="2" width="10" height="7" rx="1" stroke="#fff" stroke-width="1" fill="none"/><rect x="1" y="3" width="7" height="5" fill="#fff"/><path d="M11 4.5v2" stroke="#fff" stroke-width="1.5" stroke-linecap="round"/></svg>
+        <span>100%</span>
+      </div>
+    </div>
+    <div class="nav-bar with-border">
+      <button class="nav-btn" onclick="app.goBack()">
+        <svg viewBox="0 0 20 20"><path d="M13 16L7 10L13 4"/></svg>
+      </button>
+      <span class="nav-title">选年级</span>
+      <div class="nav-spacer"></div>
+    </div>
+    <div class="grade-tabs-row" id="gradeTabs"><!-- dynamic --></div>
+    <div class="volume-section" id="volumeSection"><!-- dynamic --></div>
+    <div class="confirm-btn-area">
+      <button class="confirm-btn" onclick="app.confirmGrade()">确定</button>
+    </div>
+    <div class="home-indicator"><div class="home-indicator-bar"></div></div>
+  </div>
+
+  <!-- ==================== PAGE 4: TABLE OF CONTENTS ==================== -->
+  <div id="lessonListPage" class="page">
+    <div class="status-bar">
+      <span class="status-time" data-clock>09:41</span>
+      <div class="status-icons">
+        <svg viewBox="0 0 11 11"><rect x="0" y="5" width="2" height="6"/><rect x="3" y="3" width="2" height="8"/><rect x="6" y="1" width="2" height="10"/><rect x="9" y="0" width="2" height="11"/></svg>
+        <svg viewBox="0 0 11 11"><path d="M1 3.5C2.5 1.5 8.5 1.5 10 3.5M3 5.5C4 4 7 4 8 5.5M5.5 7.5a.5.5 0 110 1 .5.5 0 010-1z" stroke="#fff" stroke-width="1" fill="none"/></svg>
+        <svg viewBox="0 0 13 11"><rect x="0" y="2" width="10" height="7" rx="1" stroke="#fff" stroke-width="1" fill="none"/><rect x="1" y="3" width="7" height="5" fill="#fff"/><path d="M11 4.5v2" stroke="#fff" stroke-width="1.5" stroke-linecap="round"/></svg>
+        <span>100%</span>
+      </div>
+    </div>
+    <div class="nav-bar with-border" style="height:65px;">
+      <button class="nav-btn" onclick="app.goBack()">
+        <svg viewBox="0 0 20 20"><path d="M13 16L7 10L13 4"/></svg>
+      </button>
+      <div class="nav-title" style="flex:1;text-align:center;">
+        <span class="nav-subtitle" id="tocSubtitle">三年级 上册</span>
+        <span class="nav-title-main" id="tocTitle">统编版（六三学制）</span>
+      </div>
+      <button class="nav-btn grey">
+        <svg viewBox="0 0 20 20" fill="none" stroke-width="2" stroke-linecap="round"><circle cx="10" cy="5" r="1.2" fill="#888"/><circle cx="10" cy="10" r="1.2" fill="#888"/><circle cx="10" cy="15" r="1.2" fill="#888"/></svg>
+      </button>
+    </div>
+    <!-- Now Playing Bar -->
+    <div class="now-playing-bar" id="nowPlayingBar" onclick="app.showPage('playerPage')" style="display:none;">
+      <div class="now-playing-icon">
+        <svg viewBox="0 0 16 16"><path d="M4 3v10l10-5z"/></svg>
+      </div>
+      <span class="now-playing-text" id="nowPlayingText">正在播放：—</span>
+      <span class="now-playing-arrow">›</span>
+    </div>
+    <div class="toc-list" id="lessonList"><!-- dynamic --></div>
+    <div class="home-indicator"><div class="home-indicator-bar"></div></div>
+  </div>
+
+  <!-- ==================== PAGE 5/6: PLAYER ==================== -->
+  <div id="playerPage" class="page">
+    <div class="status-bar">
+      <span class="status-time" data-clock>09:41</span>
+      <div class="status-icons">
+        <svg viewBox="0 0 11 11"><rect x="0" y="5" width="2" height="6"/><rect x="3" y="3" width="2" height="8"/><rect x="6" y="1" width="2" height="10"/><rect x="9" y="0" width="2" height="11"/></svg>
+        <svg viewBox="0 0 11 11"><path d="M1 3.5C2.5 1.5 8.5 1.5 10 3.5M3 5.5C4 4 7 4 8 5.5M5.5 7.5a.5.5 0 110 1 .5.5 0 010-1z" stroke="#fff" stroke-width="1" fill="none"/></svg>
+        <svg viewBox="0 0 13 11"><rect x="0" y="2" width="10" height="7" rx="1" stroke="#fff" stroke-width="1" fill="none"/><rect x="1" y="3" width="7" height="5" fill="#fff"/><path d="M11 4.5v2" stroke="#fff" stroke-width="1.5" stroke-linecap="round"/></svg>
+        <span>100%</span>
+      </div>
+    </div>
+    <div class="player-header">
+      <button class="nav-btn" onclick="app.goBack()">
+        <svg viewBox="0 0 20 20"><path d="M13 16L7 10L13 4"/></svg>
+      </button>
+      <div class="player-header-info">
+        <div class="player-header-sub" id="playerSub">统编版（六三学制） · 三年级 · 上册</div>
+        <div class="player-header-title" id="playerTitle">大青树下的小学</div>
+      </div>
+      <div style="display:flex;gap:8px;align-items:center;">
+        <button class="action-btn" id="favBtnNav" onclick="app.toggleFavorite()" style="flex-direction:row;">
+          <svg id="favIconNav" viewBox="0 0 20 20"><path d="M10 16.5L3.5 10A4 4 0 0110 3.5a4 4 0 016.5 6.5L10 16.5z"/></svg>
+        </button>
+      </div>
+    </div>
+    <div class="player-mode-row">
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" style="flex-shrink:0;">
+        <rect x="1" y="3" width="14" height="2" rx="1" fill="#FF8C1A"/>
+        <rect x="1" y="7" width="14" height="2" rx="1" fill="#FF8C1A"/>
+        <rect x="1" y="11" width="9" height="2" rx="1" fill="#FF8C1A"/>
+      </svg>
+      <span class="player-mode-label" style="margin-left:5px;">阅读</span>
+      <button class="player-large-subtitle-btn" onclick="app.showBigLyrics()">
+        <svg viewBox="0 0 16 16"><rect x="1" y="1" width="14" height="14" rx="2" stroke="#666" stroke-width="1.5" fill="none"/><path d="M4 5h8M4 8h8M4 11h5" stroke="#666" stroke-width="1.5" stroke-linecap="round"/></svg>
+        大字幕
+      </button>
+    </div>
+    <div class="lyrics-area" id="lyricsArea"><!-- dynamic --></div>
+    <!-- Audio Controls -->
+    <div class="audio-controls">
+      <div class="progress-row">
+        <span class="progress-time" id="currentTime">00:00</span>
+        <div class="progress-track" id="progressTrack" onclick="app.seekProgress(event)">
+          <div class="progress-fill" id="progressFill" style="width:0%"></div>
+        </div>
+        <span class="progress-time" id="totalTime">00:00</span>
+      </div>
+      <div class="controls-main">
+        <button class="ctrl-btn sm" id="loopBtn" onclick="app.toggleLoop()" title="循环模式">
+          <!-- sequence icon (default) -->
+          <svg id="loopIconSequence" viewBox="0 0 24 24"><path d="M17 2l4 4-4 4M3 11V9a4 4 0 014-4h14M7 22l-4-4 4-4M21 13v2a4 4 0 01-4 4H3" stroke="#888" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <svg id="loopIconSingle" viewBox="0 0 24 24" style="display:none;"><path d="M17 2l4 4-4 4M3 11V9a4 4 0 014-4h14M7 22l-4-4 4-4M21 13v2a4 4 0 01-4 4H3" stroke="#FF8C1A" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/><text x="9.5" y="14.5" font-size="6" fill="#FF8C1A" font-weight="bold">1</text></svg>
+          <svg id="loopIconList" viewBox="0 0 24 24" style="display:none;"><path d="M17 2l4 4-4 4M3 11V9a4 4 0 014-4h14M7 22l-4-4 4-4M21 13v2a4 4 0 01-4 4H3" stroke="#FF8C1A" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <button class="ctrl-btn md" onclick="app.prevLesson()">
+          <svg viewBox="0 0 24 24"><path d="M19 5v14l-11-7 11-7zM5 5v14" stroke="#888" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <button class="play-btn" id="playBtn" onclick="app.togglePlay()">
+          <svg id="playIcon" viewBox="0 0 24 24"><path d="M5 3l14 9-14 9V3z" fill="#fff"/></svg>
+          <svg id="pauseIcon" viewBox="0 0 24 24" style="display:none;"><rect x="6" y="4" width="4" height="16" fill="#fff"/><rect x="14" y="4" width="4" height="16" fill="#fff"/></svg>
+        </button>
+        <button class="ctrl-btn md" onclick="app.nextLesson()">
+          <svg viewBox="0 0 24 24"><path d="M5 5v14l11-7-11-7zM19 5v14" stroke="#888" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <button class="speed-badge" id="speedBadge" onclick="app.showSpeedPanel()">1x</button>
+      </div>
+      <div class="bottom-actions">
+        <button class="action-btn" id="favBtn" onclick="app.toggleFavorite()">
+          <svg id="favIcon" viewBox="0 0 20 20"><path d="M10 16.5L3.5 10A4 4 0 0110 3.5a4 4 0 016.5 6.5L10 16.5z" stroke="#555" stroke-width="1.5" fill="none"/></svg>
+          <span class="action-label" id="favLabel">收藏</span>
+        </button>
+        <button class="action-btn" id="timerBtn" onclick="app.showTimerPanel()">
+          <div style="position:relative;display:inline-block;">
+            <svg viewBox="0 0 20 20"><circle cx="10" cy="11" r="7" stroke="#555" stroke-width="1.5" fill="none"/><path d="M10 7v4l3 2" stroke="#555" stroke-width="1.5" stroke-linecap="round" fill="none"/><path d="M7 2h6" stroke="#555" stroke-width="1.5" stroke-linecap="round"/></svg>
+            <div class="action-badge-dot" id="timerDot" style="display:none;"></div>
+          </div>
+          <span class="action-label" id="timerLabel">定时</span>
+        </button>
+        <button class="action-btn" onclick="app.showBigLyrics()">
+          <svg viewBox="0 0 20 20"><rect x="2" y="2" width="16" height="16" rx="2" stroke="#555" stroke-width="1.5" fill="none"/><path d="M5 6h10M5 9.5h10M5 13h6" stroke="#555" stroke-width="1.5" stroke-linecap="round"/></svg>
+          <span class="action-label">大字幕</span>
+        </button>
+        <button class="action-btn" onclick="app.showPage('lessonListPage')">
+          <svg viewBox="0 0 20 20"><path d="M3 5h14M3 9.5h14M3 14h14" stroke="#555" stroke-width="1.5" stroke-linecap="round"/></svg>
+          <span class="action-label">目录</span>
+        </button>
+      </div>
+    </div>
+    <div class="home-indicator"><div class="home-indicator-bar"></div></div>
+
+    <!-- Speed Bottom Sheet -->
+    <div class="sheet-overlay" id="speedSheet">
+      <div class="sheet">
+        <div class="sheet-header">
+          <span class="sheet-title">播放速度</span>
+          <button class="sheet-close" onclick="app.closeSpeedPanel()">×</button>
+        </div>
+        <div class="speed-grid">
+          <button class="speed-opt" onclick="app.setSpeed(0.5,'0.5x')">0.5x</button>
+          <button class="speed-opt" onclick="app.setSpeed(0.75,'0.75x')">0.75x</button>
+          <button class="speed-opt active" id="speedOpt1x" onclick="app.setSpeed(1,'1x')">1x</button>
+          <button class="speed-opt" onclick="app.setSpeed(1.25,'1.25x')">1.25x</button>
+          <button class="speed-opt" onclick="app.setSpeed(1.5,'1.5x')">1.5x</button>
+          <button class="speed-opt" onclick="app.setSpeed(2,'2x')">2x</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Timer Bottom Sheet -->
+    <div class="sheet-overlay" id="timerSheet">
+      <div class="sheet">
+        <div class="sheet-header">
+          <span class="sheet-title">定时关闭</span>
+          <button class="sheet-close" onclick="app.closeTimerPanel()">×</button>
+        </div>
+        <div class="timer-toggle-row">
+          <div class="timer-toggle-info">
+            <div class="timer-toggle-label">定时关闭开关</div>
+            <div class="timer-toggle-sub" id="timerSwitchSub">已关闭</div>
+          </div>
+          <div class="toggle-switch" id="timerToggleSwitch" onclick="app.toggleTimerSwitch()">
+            <div class="toggle-knob"></div>
+          </div>
+        </div>
+        <div class="timer-grid" id="timerGrid">
+          <button class="timer-opt active" onclick="app.setTimer('chapter',this)">
+            <div class="timer-opt-title">播放完本章</div>
+            <div class="timer-opt-sub">本课文结束后停止</div>
+          </button>
+          <button class="timer-opt inactive" onclick="app.setTimer(10,this)">
+            <div class="timer-opt-title">10 分钟</div>
+          </button>
+          <button class="timer-opt inactive" onclick="app.setTimer(20,this)">
+            <div class="timer-opt-title">20 分钟</div>
+          </button>
+          <button class="timer-opt inactive" onclick="app.setTimer(30,this)">
+            <div class="timer-opt-title">30 分钟</div>
+          </button>
+          <button class="timer-opt inactive" onclick="app.setTimer(60,this)">
+            <div class="timer-opt-title">1 小时</div>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== PAGE 9: BIG LYRICS ==================== -->
+  <div id="bigLyricsPage" class="page">
+    <div class="status-bar dark-bg">
+      <span class="status-time" data-clock>09:41</span>
+      <div class="status-icons">
+        <svg viewBox="0 0 11 11"><rect x="0" y="5" width="2" height="6"/><rect x="3" y="3" width="2" height="8"/><rect x="6" y="1" width="2" height="10"/><rect x="9" y="0" width="2" height="11"/></svg>
+        <svg viewBox="0 0 11 11"><path d="M1 3.5C2.5 1.5 8.5 1.5 10 3.5M3 5.5C4 4 7 4 8 5.5M5.5 7.5a.5.5 0 110 1 .5.5 0 010-1z" stroke="#fff" stroke-width="1" fill="none"/></svg>
+        <svg viewBox="0 0 13 11"><rect x="0" y="2" width="10" height="7" rx="1" stroke="#fff" stroke-width="1" fill="none"/><rect x="1" y="3" width="7" height="5" fill="#fff"/><path d="M11 4.5v2" stroke="#fff" stroke-width="1.5" stroke-linecap="round"/></svg>
+        <span>100%</span>
+      </div>
+    </div>
+    <div class="big-lyrics-header">
+      <div style="width:24px;"></div>
+      <span class="big-lyrics-title">大字幕阅览</span>
+      <button class="big-lyrics-close" onclick="app.closeBigLyrics()">×</button>
+    </div>
+    <div class="big-lyrics-area" id="bigLyricsArea"><!-- dynamic --></div>
+    <div class="big-lyrics-controls">
+      <div class="big-lyrics-progress">
+        <span class="progress-time" id="bigCurrentTime">00:00</span>
+        <div class="progress-track" style="flex:1;" id="bigProgressTrack" onclick="app.seekProgress(event,true)">
+          <div class="progress-fill" id="bigProgressFill" style="width:0%"></div>
+        </div>
+        <span class="progress-time" id="bigTotalTime">00:00</span>
+      </div>
+      <div class="big-ctrl-row">
+        <button class="ctrl-btn md" onclick="app.prevLesson()">
+          <svg viewBox="0 0 24 24"><path d="M19 5v14l-11-7 11-7zM5 5v14" stroke="#888" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <button class="play-btn" id="bigPlayBtn" onclick="app.togglePlay()">
+          <svg id="bigPlayIcon" viewBox="0 0 24 24"><path d="M5 3l14 9-14 9V3z" fill="#fff"/></svg>
+          <svg id="bigPauseIcon" viewBox="0 0 24 24" style="display:none;"><rect x="6" y="4" width="4" height="16" fill="#fff"/><rect x="14" y="4" width="4" height="16" fill="#fff"/></svg>
+        </button>
+        <button class="ctrl-btn md" onclick="app.nextLesson()">
+          <svg viewBox="0 0 24 24"><path d="M5 5v14l11-7-11-7zM19 5v14" stroke="#888" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+      </div>
+    </div>
+    <div class="home-indicator"><div class="home-indicator-bar"></div></div>
+  </div>
+
+  <!-- Toast & Snackbar -->
+  <div id="toast"></div>
+  <div id="snackbar"></div>
+
+</div><!-- .device-frame -->
+
+<script src="app.js"></script>
+</body>
+</html>
