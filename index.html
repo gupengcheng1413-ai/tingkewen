@@ -10,7 +10,7 @@
 <div class="device-frame">
 
   <!-- ==================== PAGE 1: SPLASH ==================== -->
-  <div id="splashPage" class="page active">
+  <div id="splashPage" class="page active" onclick="app.enterFromSplash()">
     <div class="status-bar">
       <span class="status-time" data-clock>09:41</span>
       <div class="status-icons">
@@ -134,7 +134,7 @@
         <span class="nav-subtitle" id="tocSubtitle">三年级 上册</span>
         <span class="nav-title-main" id="tocTitle">统编版（六三学制）</span>
       </div>
-      <button class="nav-btn grey">
+      <button class="nav-btn grey" onclick="app.reSelectVersion()">
         <svg viewBox="0 0 20 20" fill="none" stroke-width="2" stroke-linecap="round"><circle cx="10" cy="5" r="1.2" fill="#888"/><circle cx="10" cy="10" r="1.2" fill="#888"/><circle cx="10" cy="15" r="1.2" fill="#888"/></svg>
       </button>
     </div>

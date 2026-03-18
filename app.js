@@ -225,6 +225,18 @@ const app = {
     if (page) { page.classList.add('active'); this.currentPage = id; }
   },
 
+  enterFromSplash() {
+    if (this.isFirstTime) {
+      this.showPage('selectVersionPage');
+    } else {
+      this.showPage('lessonListPage');
+    }
+  },
+
+  reSelectVersion() {
+    this.showPage('selectVersionPage');
+  },
+
   goBack() {
     const flow = {
       selectVersionPage: 'splashPage',
